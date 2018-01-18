@@ -24,7 +24,7 @@ $(function() {
          */
         it('URL defined', function () {
             allFeeds.forEach(function (feed) {
-                expect(feed.url).toBeDefined();
+                expect(feed.url).toBeTruthy();
             });
         });
 
@@ -34,7 +34,7 @@ $(function() {
          */
         it('Name defined', function () {
             allFeeds.forEach(function (feed) {
-                expect(feed.name).toBeDefined();
+                expect(feed.name).toBeTruthy();
             });
         });
     });
