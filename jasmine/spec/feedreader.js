@@ -23,10 +23,9 @@ $(function() {
          * and that the URL is not empty.
          */
         it('URL defined', function () {
-            for (var index in allFeeds) {
-                expect(allFeeds[index].url).toBeDefined();
-                expect(allFeeds[index].url.length).not.toBe(0);
-            }
+            allFeeds.forEach(function (feed) {
+                expect(feed.url).toBeDefined();
+            });
         });
 
         /* It loops through each feed in the allFeeds 
@@ -34,10 +33,9 @@ $(function() {
          * and that the name is not empty.
          */
         it('Name defined', function () {
-            for (var index in allFeeds) {
-                expect(allFeeds[index].name).toBeDefined();
-                expect(allFeeds[index].name.length).not.toBe(0);
-            }
+            allFeeds.forEach(function (feed) {
+                expect(feed.name).toBeDefined();
+            });
         });
     });
 
@@ -73,7 +71,7 @@ $(function() {
         });
 
         it('asynchronous loadFeed has at least a single .entry element', function (done) {
-            expect($('.feed .entry').length > 1).toBeTruthy();
+            expect($('.feed .entry').length).toBeGreaterThan(0)
             done();
         });
     });
@@ -94,9 +92,9 @@ $(function() {
         it('ensures when new feed is loaded that the content changes', function (done) {
             loadFeed(1, function () {
                 afterContent = $('.feed').find('h2').text();
+                expect(beforeContent).not.toEqual(afterContent);
+                done();
             });
-            expect(beforeContent).not.toEqual(afterContent);
-            done();
         });
     });
 }());
