@@ -71,7 +71,7 @@ $(function() {
         });
 
         it('asynchronous loadFeed has at least a single .entry element', function (done) {
-            expect($('.feed .entry').length).toBeGreaterThan(0)
+            expect($('.feed .entry').length).toBeGreaterThan(0);
             done();
         });
     });
